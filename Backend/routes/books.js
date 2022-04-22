@@ -1,15 +1,28 @@
 const express = require("express");
-const books = require("./routes/books");
-const app = express();
+const { getAllBooks, createBook, updateBook, deleteBook } = require("../controllers/booksController");
+const router = express.Router();
 
-app.use(express.json());
+router.route('/books').get(getAllBooks);
 
-app.use('/api', books);
+router.route('/create-book').post(createBook);
 
-app.listen(3001, () => {
-  console.log("Server is started");
-});
+router.route('/book/:id').put(updateBook);
 
+router.route('/book/:id').delete(deleteBook);
+
+module.exports = router;
+
+
+
+// const express = require("express");
+// const { getAllBooks, createBook } = require("../controllers/booksController");
+// const router = express.Router();
+
+// router.route('/books').get(getAllBooks);
+
+// router.route('/create-book').post(createBook);
+
+// module.exports = router;
 
 // app.get("/", (req, res) => { // api/
 //   console.log(req);
