@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        input{
+            display: block;
+            margin-bottom: 10px;
+        }
+        #gender{
+            display: inline-flex;
+        }
+    </style>
+</head>
+<body>
+    
+<form>
+    <label>First Name: </label>
+    <input type="text" placeholder="Enter First Name..."/>
+    
+    <label>Last Name: </label>
+    <input type="text" placeholder="Enter Last Name..."/>
+    
+    <label>Email: </label>
+    <input type="email" placeholder="Enter Email ID"/>
+
+    <label>Password:</label>
+    <input type="password" placeholder="Enter Password"/>
+
+    <label>Phone Number: </label>
+    <input type="number" placeholder="Enter Phone Number"/>
+
+    <label>Date: </label>
+    <input type="date"/>
+
+    <label>Date-Time: </label>
+    <input type="datetime-local" />
+
+    <label>I have a Girl Friend</label>
+    <input type="checkbox"/>
+
+    <label>Color Picker: </label>
+    <input type="color" />
+
+    <label>Upload File: </label>
+    <input type="file"/>
+
+    <div id="gender">
+    <label>Gender: </label>
+    <label style="margin-right: 50px;">
+        <input type="radio" name="gender" value="male">
+        Male
+      </label>
+      <label>
+        <input type="radio" name="gender" value="female">
+        Female
+      </label>
+    </div>
+
+    <label style="display: block;">Range: </label>
+    <input type="range"/>
+    
+    <label>Search Anything: </label>
+    <input type="search" />
+
+    
+    <input type="submit" />
+
+</form>
+</body>
+</html>

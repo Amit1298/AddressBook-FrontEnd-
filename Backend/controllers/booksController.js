@@ -7,6 +7,7 @@ const data = {
     result: booksData,
     count: booksData.length 
 };
+console.log(data);
   res.status(200).json(data);
 };
 
@@ -17,7 +18,7 @@ exports.createBook = (req, res) => {
       ...req.body,
       id: uniqueId
   };
-
+console.log(newBook);
   booksData.push(newBook);
   res
     .status(200)
@@ -34,19 +35,22 @@ let bookId = req.params.id;
 let book = booksData.find(item => item.id === bookId);
 
 if(!book) {
-  res
+  return res
     .status(404)
     .json({ message: "Book Not found" });
+    
 }
 let updatedBook = {
   ...book, 
   ...req.body 
 };
+console.log(updatedBook);
 booksData = booksData.map((el) => el.id === bookId ? updatedBook: el);
 
-  res
+ return res
     .status(200)
     .json({ message: "Sucessfully updated the book." , result: updatedBook});
+
 };
 
 
@@ -54,17 +58,18 @@ exports.deleteBook = (req, res) => {
   let bookId = req.params.id;
   let book = booksData.find(item => item.id === bookId);
   if(!book) {
-    res
+   return res
       .status(404)
       .json({ message: "Book Not found" });
   }
   booksData = booksData.filter(item => item.id !== bookId);
-  res
+  return res
     .status(200)
     .json({ message: "Sucessfully Deleted the book." , result: book});
   // check the book , its there or not in bookstore
   // delete the book
   // update the storebook
+
 }
 
 
